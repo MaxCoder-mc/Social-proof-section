@@ -1,0 +1,303 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  /* ## Colors */
+
+  --Very-Dark-Magenta: #502050;
+  --Soft-Pink: #ee68a4;
+  --Dark-Grayish-Magenta: #937b92;
+  --Light-Grayish-Magenta: #f7f2f7;
+  --White: #ffffff;
+
+  /* ## Typography */
+  --font: "League Spartan", sans-serif;
+  --Text-Preset-1: 700 calc((40 / 16) * 1rem) / 2rem var(--font);
+  --Text-Preset-2: 700 calc((17 / 16) * 1rem) var(--font);
+  --Text-Preset-3: 500 calc((19 / 16) * 1rem) / 1.56rem var(--font);
+  --Text-Preset-4: 500 calc((17 / 16) * 1rem) / 1.375rem var(--font);
+  --Text-Preset-5: 400 calc((17 / 16) * 1rem) var(--font);
+
+  /* ## Spacing */
+  --XL-64: calc((64 / 16) * 1rem);
+  --L-40: calc((40 / 16) * 1rem);
+  --M-32: calc((32 / 16) * 1rem);
+  --S-24: calc((24 / 16) * 1rem);
+  --XS-20: calc((20 / 16) * 1rem);
+
+  /* mobile */
+  --container-Width: calc((500 / 16) * 1rem);
+}
+/**************************************/
+/********** GENERAL SETTINGS **********/
+/**************************************/
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font);
+  overflow: hidden;
+
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+body::before {
+  background: url("./images/bg-pattern-top-mobile.svg") no-repeat;
+  background-size: contain;
+  width: calc((374 / 16) * 1rem);
+  height: calc((232 / 16) * 1rem);
+
+  top: 0;
+  left: 0;
+}
+body::after {
+  background: url("./images/bg-pattern-bottom-mobile.svg") no-repeat;
+  background-size: cover;
+  background-position: top right;
+  /* width: calc((1085 / 16) * 1rem); */
+  height: calc((673 / 16) * 1rem);
+  width: 100%;
+
+  right: 0;
+  bottom: 0;
+}
+
+main {
+  margin: 5.125rem auto;
+}
+.container {
+  padding-inline: var(--S-24);
+  max-width: var(--container-Width);
+  margin-inline: auto;
+}
+.flex-col-row {
+  display: flex;
+  flex-direction: column;
+}
+/**************************************/
+
+.social-proof-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3.0625rem;
+}
+/************ Part 1 ************/
+/**************************************/
+.social-proof__first-part {
+  gap: 2.437rem;
+}
+.first-part-text {
+  text-align: center;
+}
+.heading-1 {
+  font: var(--Text-Preset-1);
+  color: var(--Very-Dark-Magenta);
+  letter-spacing: -1.43px;
+  margin-bottom: 1.5rem;
+}
+.first-part-paragraph {
+  font: var(--Text-Preset-3);
+  color: var(--Dark-Grayish-Magenta);
+  letter-spacing: -0.63px;
+}
+
+/* Ratings *************/
+.ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.rating {
+  align-items: center;
+  justify-content: center;
+  gap: calc((15 / 16) * 1rem);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--Light-Grayish-Magenta);
+}
+.rating-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+.rating-type {
+  font: var(--Text-Preset-2);
+  color: var(--Very-Dark-Magenta);
+}
+
+/************ Testimonial  ************/
+/**************************************/
+.social-proof__second-part {
+  gap: 1rem;
+}
+.testimonial {
+  background-color: var(--Very-Dark-Magenta);
+  padding: var(--L-40) var(--M-32);
+  padding: var(--L-40) 2.12rem;
+  border-radius: 0.5rem;
+}
+.testimonial-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--S-24);
+
+  margin-bottom: var(--S-24);
+}
+.profile-picture {
+  width: var(--L-40);
+  height: var(--L-40);
+  border-radius: 50%;
+}
+.name {
+  display: block;
+  font: var(--Text-Preset-2);
+  color: var(--White);
+
+  margin-bottom: 4px;
+}
+.buyer {
+  display: block;
+  font: var(--Text-Preset-5);
+  color: var(--Soft-Pink);
+}
+.testimonial-paragraph {
+  font: var(--Text-Preset-4);
+  color: var(--White);
+  letter-spacing: -0.3px;
+}
+/**************************************/
+/************** QUERIES ***************/
+/**************************************/
+@media (min-width: 72rem) {
+  :root {
+    --Text-Preset-1: 700 calc((56 / 16) * 1rem) / 3rem var(--font);
+    --container-Width: calc((1158 / 16) * 1rem);
+  }
+  .flex-col-row {
+    flex-direction: row;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body::before {
+    background: url("./images/bg-pattern-top-desktop.svg") no-repeat;
+    background-size: contain;
+    width: calc((584 / 16) * 1rem);
+    height: calc((362 / 16) * 1rem);
+  }
+  body::after {
+    background: url("./images/bg-pattern-bottom-desktop.svg") no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: calc((1085 / 16) * 1rem);
+  }
+
+  .social-proof-section {
+    gap: calc((71 / 16) * 1rem);
+  }
+  /************ Part 1 ************/
+  .social-proof__first-part {
+    align-items: center;
+    gap: calc((125 / 16) * 1rem);
+  }
+  .first-part-text {
+    flex: 1;
+    text-align: start;
+  }
+  .ratings {
+    align-items: start;
+  }
+  .rating {
+    justify-content: start;
+    gap: var(--M-32);
+    padding-block: 1.3rem;
+    padding-left: var(--M-32);
+  }
+  .left {
+    align-self: flex-start;
+    padding-right: 5.035rem;
+  }
+  .center {
+    margin-left: 3rem;
+    padding-right: 3.034rem;
+  }
+  .right {
+    margin-left: 6rem;
+    padding-right: 4.585rem;
+  }
+
+  /************ Testimonial  ************/
+  .social-proof__second-part {
+    gap: calc((30 / 16) * 1rem);
+    align-items: start;
+  }
+
+  .testimonial-center {
+    margin-top: 1rem;
+  }
+  .testimonial-bottom {
+    margin-top: var(--M-32);
+  }
+}
