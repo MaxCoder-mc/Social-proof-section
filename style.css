@@ -86,6 +86,7 @@ h6 {
 /**************************************/
 html {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
